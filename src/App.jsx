@@ -34,7 +34,7 @@ function App() {
     <div className="app">
       <StarField />
       <CursorTrail />
-      <Navigation currentPage={currentPage} onNavigate={setCurrentPage} />
+      <Navigation currentPage={currentPage} onNavigate={setCurrentPage} showContent={showContent} />
       
       <AnimatePresence mode="wait">
         <motion.div
