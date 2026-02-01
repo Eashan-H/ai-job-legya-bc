@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { AuthProvider } from './context/AuthContext';
 import HomePage from './components/HomePage';
 import EventsPage from './components/EventsPage';
 import SpaceMap from './components/SpaceMap';
 import AboutPage from './components/AboutPage';
 import PassesPage from './components/PassesPage';
+import UserDashboard from './components/UserDashboard';
 import Navigation from './components/Navigation';
+import AuthModal from './components/AuthModal';
+import CountdownTimer from './components/CountdownTimer';
 import StarField from './components/StarField';
 import CursorTrail from './components/CursorTrail';
 import './styles/App.css';
