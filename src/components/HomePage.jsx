@@ -5,6 +5,18 @@ import '../styles/HomePage.css';
 const HomePage = ({ onNavigate }) => {
   return (
     <div className="home-page">
+      {/* Background Video */}
+      <video
+        className="background-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source src="https://cdn.builder.io/o/assets%2F0fb682404d934e8fbdb72e45717ff4f2%2Fc30731bf7124420a8b6d37c9c9b99bdf?alt=media&token=0b519df1-cadd-4979-a0e7-5f2f6dc62261&apiKey=0fb682404d934e8fbdb72e45717ff4f2" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
       {/* Animated Nebula Background Layers */}
       <div className="nebula-layer nebula-1"></div>
       <div className="nebula-layer nebula-2"></div>
