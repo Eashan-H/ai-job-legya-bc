@@ -43,24 +43,28 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <StarField />
-      <CursorTrail />
-      <Navigation currentPage={currentPage} onNavigate={setCurrentPage} showContent={showContent} />
-      
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentPage}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-          className="page-container"
-        >
-          {renderPage()}
-        </motion.div>
-      </AnimatePresence>
-    </div>
+    <AuthProvider>
+      <div className="app">
+        <StarField />
+        <CursorTrail />
+        <Navigation currentPage={currentPage} onNavigate={setCurrentPage} showContent={showContent} />
+        <AuthModal />
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentPage}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="page-container"
+          >
+            {currentPage !== 'home' && <CountdownTimer />}
+            {renderPage()}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </AuthProvider>
   );
 }
 
