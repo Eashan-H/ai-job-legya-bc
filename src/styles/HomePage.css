@@ -26,6 +26,12 @@
   height: 100%;
   pointer-events: none;
   z-index: 2;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.hero-content:not([style*="pointerEvents: none"]) ~ .nebula-layer {
+  opacity: 1;
 }
 
 .nebula-1 {
