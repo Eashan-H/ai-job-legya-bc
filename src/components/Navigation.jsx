@@ -7,7 +7,9 @@ const Navigation = ({ currentPage, onNavigate, showContent }) => {
 
   const navItems = [
     { id: 'home', label: 'Home', icon: '🏠' },
+    { id: 'about', label: 'About', icon: '🌌' },
     { id: 'events', label: 'Events', icon: '🪐' },
+    { id: 'passes', label: 'Passes', icon: '🎫' },
     { id: 'map', label: 'Map', icon: '🗺️' },
   ];
 
