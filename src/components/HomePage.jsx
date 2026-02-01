@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import '../styles/HomePage.css';
 
-const HomePage = ({ onNavigate }) => {
+const HomePage = ({ onNavigate, onShowContent }) => {
   const [showContent, setShowContent] = useState(false);
+
+  const handleShowContent = () => {
+    setShowContent(true);
+    if (onShowContent) onShowContent(true);
+  };
   return (
     <div className="home-page">
       {/* Background Video */}
