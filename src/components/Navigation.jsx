@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useAuth } from '../context/AuthContext';
 import '../styles/Navigation.css';
 
 const Navigation = ({ currentPage, onNavigate, showContent }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
+  const { user, setIsAuthOpen, setAuthMode } = useAuth();
 
   const navItems = [
     { id: 'home', label: 'Home', icon: '🏠' },
