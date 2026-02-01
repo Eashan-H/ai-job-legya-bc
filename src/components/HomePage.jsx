@@ -17,7 +17,7 @@ const HomePage = ({ onNavigate, onShowContent }) => {
         autoPlay
         muted
         playsInline
-        onEnded={() => setShowContent(true)}
+        onEnded={handleShowContent}
         initial={{ opacity: 1 }}
         animate={{ opacity: showContent ? 0 : 1 }}
         transition={{ duration: 1 }}
