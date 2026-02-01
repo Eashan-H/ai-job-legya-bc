@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import HomePage from './components/HomePage';
 import EventsPage from './components/EventsPage';
 import SpaceMap from './components/SpaceMap';
+import AboutPage from './components/AboutPage';
+import PassesPage from './components/PassesPage';
 import Navigation from './components/Navigation';
 import StarField from './components/StarField';
 import CursorTrail from './components/CursorTrail';
