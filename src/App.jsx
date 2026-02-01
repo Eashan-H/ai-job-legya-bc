@@ -11,6 +11,7 @@ import './styles/App.css';
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -19,13 +20,13 @@ function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
-        return <HomePage onNavigate={setCurrentPage} />;
+        return <HomePage onNavigate={setCurrentPage} onShowContent={setShowContent} />;
       case 'events':
         return <EventsPage />;
       case 'map':
         return <SpaceMap />;
       default:
-        return <HomePage onNavigate={setCurrentPage} />;
+        return <HomePage onNavigate={setCurrentPage} onShowContent={setShowContent} />;
     }
   };
 
