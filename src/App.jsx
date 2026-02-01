@@ -35,6 +35,8 @@ function App() {
         return <PassesPage />;
       case 'map':
         return <SpaceMap />;
+      case 'dashboard':
+        return <UserDashboard />;
       default:
         return <HomePage onNavigate={setCurrentPage} onShowContent={setShowContent} />;
     }
