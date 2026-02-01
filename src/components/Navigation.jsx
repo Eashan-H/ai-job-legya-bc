@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import '../styles/Navigation.css';
 
-const Navigation = ({ currentPage, onNavigate }) => {
+const Navigation = ({ currentPage, onNavigate, showContent }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const navItems = [
