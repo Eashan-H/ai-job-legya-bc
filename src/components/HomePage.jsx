@@ -30,8 +30,9 @@ const HomePage = ({ onNavigate }) => {
       <motion.div
         className="hero-content"
         initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
+        animate={{ opacity: showContent ? 1 : 0, scale: showContent ? 1 : 0.8 }}
         transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+        style={{ pointerEvents: showContent ? 'auto' : 'none' }}
       >
         {/* Meraz Logo */}
         <motion.div
