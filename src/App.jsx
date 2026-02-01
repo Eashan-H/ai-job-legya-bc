@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import HomePage from './components/HomePage';
 import EventsPage from './components/EventsPage';
 import SpaceMap from './components/SpaceMap';
+import AboutPage from './components/AboutPage';
+import PassesPage from './components/PassesPage';
 import Navigation from './components/Navigation';
 import StarField from './components/StarField';
 import CursorTrail from './components/CursorTrail';
@@ -11,6 +13,7 @@ import './styles/App.css';
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -19,13 +22,13 @@ function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
-        return <HomePage onNavigate={setCurrentPage} />;
+        return <HomePage onNavigate={setCurrentPage} onShowContent={setShowContent} />;
       case 'events':
         return <EventsPage />;
       case 'map':
         return <SpaceMap />;
       default:
-        return <HomePage onNavigate={setCurrentPage} />;
+        return <HomePage onNavigate={setCurrentPage} onShowContent={setShowContent} />;
     }
   };
 
@@ -33,7 +36,7 @@ function App() {
     <div className="app">
       <StarField />
       <CursorTrail />
-      <Navigation currentPage={currentPage} onNavigate={setCurrentPage} />
+      <Navigation currentPage={currentPage} onNavigate={setCurrentPage} showContent={showContent} />
       
       <AnimatePresence mode="wait">
         <motion.div

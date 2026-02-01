@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import '../styles/HomePage.css';
 
-const HomePage = ({ onNavigate }) => {
+const HomePage = ({ onNavigate, onShowContent }) => {
+  const [showContent, setShowContent] = useState(false);
+
+  const handleShowContent = () => {
+    setShowContent(true);
+    if (onShowContent) onShowContent(true);
+  };
   return (
     <div className="home-page">
+      {/* Background Video */}
+      <motion.video
+        className="background-video"
+        autoPlay
+        muted
+        playsInline
+        onEnded={handleShowContent}
+        initial={{ opacity: 1 }}
+        animate={{ opacity: showContent ? 0 : 1 }}
+        transition={{ duration: 1 }}
+      >
+        <source src="https://cdn.builder.io/o/assets%2F0fb682404d934e8fbdb72e45717ff4f2%2Fc30731bf7124420a8b6d37c9c9b99bdf?alt=media&token=0b519df1-cadd-4979-a0e7-5f2f6dc62261&apiKey=0fb682404d934e8fbdb72e45717ff4f2" type="video/mp4" />
+        Your browser does not support the video tag.
+      </motion.video>
+
       {/* Animated Nebula Background Layers */}
       <div className="nebula-layer nebula-1"></div>
       <div className="nebula-layer nebula-2"></div>
@@ -14,8 +35,9 @@ const HomePage = ({ onNavigate }) => {
       <motion.div
         className="hero-content"
         initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
+        animate={{ opacity: showContent ? 1 : 0, scale: showContent ? 1 : 0.8 }}
         transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+        style={{ pointerEvents: showContent ? 'auto' : 'none' }}
       >
         {/* Meraz Logo */}
         <motion.div
@@ -103,8 +125,9 @@ const HomePage = ({ onNavigate }) => {
       <motion.div
         className="scroll-indicator"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        animate={{ opacity: showContent ? 1 : 0 }}
         transition={{ delay: 2.2, duration: 1 }}
+        style={{ pointerEvents: showContent ? 'auto' : 'none' }}
       >
         <motion.div
           className="scroll-arrow"

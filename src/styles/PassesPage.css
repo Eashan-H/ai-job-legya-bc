@@ -1,0 +1,338 @@
+.passes-page {
+  position: relative;
+  min-height: 100vh;
+  padding: 4rem 2rem;
+}
+
+/* Header */
+.passes-header {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 3rem 0;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+.passes-title {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff 0%, #c084fc 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.passes-subtitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: var(--cyan-glow);
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+/* Passes Grid Container */
+.passes-grid-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.passes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Pass Card */
+.pass-card {
+  position: relative;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(26, 26, 62, 0.8), rgba(10, 10, 30, 0.8));
+  border: 2px solid;
+  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.pass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(236, 72, 153, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 16px;
+}
+
+.pass-card:hover::before {
+  opacity: 1;
+}
+
+.pass-card.premium {
+  transform: scale(1.02);
+}
+
+.pass-card.premium::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, var(--cosmic-purple), var(--neon-pink));
+  border-radius: 16px;
+  opacity: 0.2;
+  z-index: -1;
+  filter: blur(15px);
+}
+
+/* Premium Badge */
+.premium-badge {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  background: linear-gradient(135deg, var(--cosmic-purple), var(--neon-pink));
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 20px rgba(147, 51, 234, 0.6);
+}
+
+/* Pass Header */
+.pass-header {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+}
+
+.pass-name {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.pass-price {
+  font-family: 'Orbitron', monospace;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 0 20px currentColor;
+}
+
+.pass-description {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: var(--text-gray);
+  line-height: 1.5;
+}
+
+/* Pass Features */
+.pass-features {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.features-list {
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0;
+}
+
+.features-list li {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  padding: 0.75rem 0;
+  color: var(--text-gray);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.feature-icon {
+  color: var(--cyan-glow);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Purchase Button */
+.purchase-button {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.purchase-button:hover {
+  box-shadow: 0 0 30px currentColor;
+  transform: translateY(-2px);
+}
+
+.purchase-button:active {
+  transform: translateY(0);
+}
+
+/* FAQ Section */
+.faq-section {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 6rem auto 0;
+  padding: 4rem 2rem;
+}
+
+.section-title {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #c084fc, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.faq-item {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(236, 72, 153, 0.1));
+  border: 1px solid rgba(147, 51, 234, 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(147, 51, 234, 0.6);
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(236, 72, 153, 0.15));
+}
+
+.faq-item h3 {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #c084fc;
+  margin-bottom: 0.75rem;
+}
+
+.faq-item p {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-gray);
+}
+
+/* Cosmic Background Elements */
+.cosmic-element {
+  position: fixed;
+  pointer-events: none;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.cosmic-e1 {
+  top: 20%;
+  right: 5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.cosmic-e2 {
+  bottom: 10%;
+  left: 5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .passes-page {
+    padding: 2rem 1rem;
+  }
+
+  .passes-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .pass-card.premium {
+    transform: scale(1);
+  }
+
+  .premium-badge {
+    top: 10px;
+    right: 10px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.65rem;
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cosmic-e1,
+  .cosmic-e2 {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .passes-title {
+    font-size: 1.75rem;
+  }
+
+  .pass-price {
+    font-size: 2rem;
+  }
+
+  .pass-name {
+    font-size: 1.3rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
