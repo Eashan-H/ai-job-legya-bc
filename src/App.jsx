@@ -23,8 +23,12 @@ function App() {
     switch (currentPage) {
       case 'home':
         return <HomePage onNavigate={setCurrentPage} onShowContent={setShowContent} />;
+      case 'about':
+        return <AboutPage />;
       case 'events':
         return <EventsPage />;
+      case 'passes':
+        return <PassesPage />;
       case 'map':
         return <SpaceMap />;
       default:
