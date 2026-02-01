@@ -17,8 +17,9 @@ const Navigation = ({ currentPage, onNavigate, showContent }) => {
       <motion.div
         className="nav-container"
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
+        animate={{ opacity: showContent ? 1 : 0, y: showContent ? 0 : -20 }}
+        transition={{ delay: showContent ? 0.5 : 0, duration: 0.8 }}
+        style={{ pointerEvents: showContent ? 'auto' : 'none' }}
       >
         <motion.button
           className="nav-toggle"
