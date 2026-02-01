@@ -120,8 +120,9 @@ const HomePage = ({ onNavigate }) => {
       <motion.div
         className="scroll-indicator"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        animate={{ opacity: showContent ? 1 : 0 }}
         transition={{ delay: 2.2, duration: 1 }}
+        style={{ pointerEvents: showContent ? 'auto' : 'none' }}
       >
         <motion.div
           className="scroll-arrow"
