@@ -18,6 +18,71 @@ const Navigation = ({ currentPage, onNavigate, showContent }) => {
 
   return (
     <>
+      {/* User Profile / Auth Button */}
+      {showContent && (
+        <motion.div
+          className="user-menu-container"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+        >
+          {user ? (
+            <div className="user-profile-menu">
+              <motion.button
+                className="user-profile-button"
+                onClick={() => setShowUserMenu(!showUserMenu)}
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="user-avatar-small">{user.name.charAt(0).toUpperCase()}</div>
+                <span>{user.name}</span>
+              </motion.button>
+
+              {showUserMenu && (
+                <motion.div
+                  className="user-dropdown"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <button
+                    className="dropdown-item"
+                    onClick={() => {
+                      onNavigate('dashboard');
+                      setShowUserMenu(false);
+                    }}
+                  >
+                    📊 Dashboard
+                  </button>
+                </motion.div>
+              )}
+            </div>
+          ) : (
+            <div className="auth-buttons">
+              <motion.button
+                className="auth-button-nav login"
+                onClick={() => {
+                  setAuthMode('login');
+                  setIsAuthOpen(true);
+                }}
+                whileHover={{ scale: 1.05 }}
+              >
+                Log In
+              </motion.button>
+              <motion.button
+                className="auth-button-nav signup"
+                onClick={() => {
+                  setAuthMode('signup');
+                  setIsAuthOpen(true);
+                }}
+                whileHover={{ scale: 1.05 }}
+              >
+                Sign Up
+              </motion.button>
+            </div>
+          )}
+        </motion.div>
+      )}
+
       {/* Floating Navigation Button */}
       <motion.div
         className="nav-container"
